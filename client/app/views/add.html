@@ -1,0 +1,70 @@
+<md-dialog aria-label="List dialog">
+
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <span>{{vm.title}}</span>
+      <!-- fill up the space between left and right area -->
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="vm.closeDialog()">
+        <md-icon> close</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+    <div class="md-dialog-content">
+      <form name="colorForm">
+
+        <md-input-container class="md-block">
+          <label>Name</label>
+          <md-icon> person</md-icon>
+          <input name="favoriteColor" ng-model="vm.contact.name" required>
+          <div ng-messages="userForm.lastName.$error">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <label>Phone Number</label>
+          <md-icon> call</md-icon>
+          <input md-maxlength="30" required name="name" ng-model="vm.contact.number">
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <label>Email</label>
+          <md-icon> mail</md-icon>
+          <input md-maxlength=" 30" required name="name" ng-model="vm.contact.email" required>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <label>Company Name</label>
+          <md-icon> business</md-icon>
+          <input name=" favoriteColor" ng-model="vm.contact.company">
+          <div ng-messages="userForm.lastName.$error">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <label>Address</label>
+          <md-icon>home</md-icon>
+          <input name="favoriteColor" ng-model="vm.contact.address">
+          <div ng-messages="userForm.lastName.$error">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+      </form>
+    </div>
+  </md-dialog-content>
+
+  <md-dialog-actions>
+    <md-button ng-click="vm.closeDialog()">
+      Cancel
+    </md-button>
+    <md-button class="md-raised md-primary" ng-hide="vm.contact.id" ng-click="vm.addContact(vm.contact)">
+      Add
+    </md-button>
+    <md-button class="md-raised md-primary" ng-show="vm.contact.id" ng-click="vm.updateContact(vm.contact.id, vm.contact)">
+      Update
+    </md-button>
+  </md-dialog-actions>
+</md-dialog>

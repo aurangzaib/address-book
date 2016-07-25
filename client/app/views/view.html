@@ -1,0 +1,57 @@
+<md-dialog aria-label="List dialog">
+
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <span>{{vm.title}}</span>
+      <!-- fill up the space between left and right area -->
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="vm.closeDialog()">
+        <md-icon>close</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+    <div class="md-dialog-content">
+      <md-list>
+        <md-list-item class="md-2-line">
+          <div class="md-list-item-text">
+            <md-icon> person</md-icon>
+            <span>{{vm.contact.name}}</span>
+          </div>
+        </md-list-item>
+        <md-list-item class="md-2-line">
+          <div class="md-list-item-text">
+            <md-icon> call</md-icon>
+            <span>{{vm.contact.number}}</span>
+          </div>
+        </md-list-item>
+
+        <md-list-item class="md-2-line">
+          <div class="md-list-item-text">
+            <md-icon> mail</md-icon>
+            <span name="name">{{vm.contact.email}}</span>
+          </div>
+        </md-list-item>
+
+        <md-list-item class="md-2-line">
+          <div class="md-list-item-text">
+            <md-icon> business</md-icon>
+            <span name=" favoriteColor">{{vm.contact.company}}</span></div>
+        </md-list-item>
+
+        <md-list-item class="md-2-line">
+          <div class="md-list-item-text">
+            <md-icon>home</md-icon>
+            <span name="favoriteColor">{{vm.contact.address}}</span>
+          </div>
+        </md-list-item>
+      </md-list>
+    </div>
+  </md-dialog-content>
+
+  <md-dialog-actions>
+    <md-button class="md-raised md-primary" ng-click="vm.closeDialog()">
+      Close
+    </md-button>
+  </md-dialog-actions>
+</md-dialog>

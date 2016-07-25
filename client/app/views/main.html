@@ -1,0 +1,45 @@
+<div layout="column" flex>
+
+  <!--<a ui-sref="next">Go to Next</a> <br/>-->
+  <!--<a ui-sref="next-more">Go to Next-More</a>-->
+  <!--<div ui-view="others"></div>-->
+
+  <!-- Toolbar -->
+  <md-toolbar md-scroll-shrink style="position: fixed;">
+    <div class="md-toolbar-tools">
+      <span>Address Book</span>
+    </div>
+  </md-toolbar>
+
+  <!-- FAB -->
+  <nav mfb-menu
+       template-url="ng-mfb-menu-md.tpl.html"
+       position="br"
+       resting-icon="images/ic_people_24px.svg"
+       active-icon="images/ic_people_24px.svg"
+       ng-click="vm.editContact(null)">
+  </nav>
+
+  <!-- content of the app -->
+  <md-content layout="column" flex style="padding: 80px">
+    <md-list>
+      <md-list-item class="md-2-line" ng-repeat="contact in vm.contacts" class="noright">
+        <div class="md-list-item-text" style="padding-bottom: 33px">{{contact.name}}</div>
+
+        <md-button class="md-icon-button" ng-click="vm.viewContact(contact)">
+          <md-icon> visibility</md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button" ng-click="vm.editContact(contact)">
+          <md-icon> mode_edit</md-icon>
+        </md-button>
+
+        <md-button class="md-icon-button" ng-click="vm.deleteContact(contact)">
+          <md-icon> delete</md-icon>
+        </md-button>
+
+        </md-menu>
+      </md-list-item>
+    </md-list>
+  </md-content>
+</div>
