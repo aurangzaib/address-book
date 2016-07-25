@@ -7,13 +7,6 @@ import static spark.Spark.setIpAddress;
 import static spark.Spark.setPort;
 import static spark.SparkBase.staticFileLocation;
 
-import java.util.HashMap;
-
-import spark.Filter;
-import spark.Request;
-import spark.Response;
-import spark.Spark;
-
 public class Main {
 
   // entry point for the app
