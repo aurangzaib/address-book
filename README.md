@@ -1,3 +1,5 @@
+Note: This guide is only for OSX El Capitan and Ubuntu 16.04. I don't have my development environment setup on Windows.
+
 <h1>Get the Code</h1>
 <code>git clone https://github.com/aurangzaib/address-book</code>
 
