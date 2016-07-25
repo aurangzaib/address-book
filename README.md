@@ -3,13 +3,21 @@
 
 <h1>Setup</h1>
 <h3>Client side:</h3>
+
+ <h4>I have used Typescript and AngularJS.</h4>
+
 <code>cd address-book/client</code> <br/>
 
- Assuming you have bower and node installed in your machine: <br/>
+ If you dont have bower and node installed in your machine: <br/>
+ Node  <code>https://nodejs.org/dist/v4.4.7/node-v4.4.7.pkg </code> <br/>
+ Bower <code>sudo npm install -g bower </code>
+ 
 <code>bower install && npm install</code>
 
 <h3> Server Side:</h3>
- I am using Java 8 and MongoDB. Maven for packaging. <br/><br/>
+
+ <h4> I have used Java 8, MongoDB and Maven. </h4>
+ 
 <code>cd address-book/server</code> <br/>
 <code>brew install mongodb</code><br/>
 <code>brew install mvn</code><br/>
