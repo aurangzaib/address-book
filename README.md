@@ -40,6 +40,6 @@ New terminal:
 
 <h1>Development</h1>
 
-I have use IntelliJ for Client and Backend development. <br/>
+I have used IntelliJ for Client and Backend development. <br/>
 For client side, you need typescript to be enabled in IntelliJ.
 For server side, common figure out yourself :)

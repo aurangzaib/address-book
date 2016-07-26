@@ -1,4 +1,3 @@
-/// <reference path="../app.definition.ts" />
 var addressBook;
 (function (addressBook) {
     'use strict';
@@ -14,7 +13,6 @@ var addressBook;
                     contacts: ['dataService', function (dataService) { return dataService.getContacts(); }]
                 }
             });
-            // default route
             $urlRouterProvider.otherwise('/');
         }
         Routes.$inject = ['$stateProvider', '$urlRouterProvider'];

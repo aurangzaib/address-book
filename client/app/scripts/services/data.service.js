@@ -1,4 +1,3 @@
-/// <reference path="../app.definition.ts" />
 var addressBook;
 (function (addressBook) {
     'use strict';

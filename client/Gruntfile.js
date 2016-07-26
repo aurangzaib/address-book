@@ -10,7 +10,8 @@ module.exports = function (grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
-
+  grunt.loadNpmTasks("grunt-ts");
+  grunt.loadNpmTasks('grunt-contrib-clean');
   // Automatically load required Grunt tasks
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
@@ -26,6 +27,12 @@ module.exports = function (grunt) {
 
   // Define the configuration for all the tasks
   grunt.initConfig({
+
+    ts: {
+      default : {
+        src: ["app/**/*.ts", "!node_modules/**", "!bower_components/**"]
+      }
+    },
 
     // Project settings
     yeoman: appConfig,
@@ -166,7 +173,8 @@ module.exports = function (grunt) {
           ]
         }]
       },
-      server: '.tmp'
+      server: '.tmp',
+      js: ['app/**/*.js', 'app/**/*.js.map']
     },
 
     // Add vendor prefixed styles
@@ -455,6 +463,10 @@ module.exports = function (grunt) {
     'karma'
   ]);
 
+  grunt.registerTask('clean-js', [
+    'clean:js'
+  ]);
+
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
@@ -472,7 +484,11 @@ module.exports = function (grunt) {
     'usemin',
     'htmlmin'
   ]);
-
+  
+  grunt.registerTask('make-js', [
+    'ts:default'
+  ]);
+  
   grunt.registerTask('default', [
     'newer:jshint',
     'newer:jscs',

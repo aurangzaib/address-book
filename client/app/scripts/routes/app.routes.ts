@@ -16,6 +16,7 @@ module addressBook {
             contacts: ['dataService', (dataService:addressBook.DataService) => dataService.getContacts()]
           }
         });
+
       // default route
       $urlRouterProvider.otherwise('/');
     }
