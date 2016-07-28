@@ -2,13 +2,14 @@
 'use strict';
 
 module addressBook {
-  angular
-    .module('addressBookApp', ['ui.router', 'ngMaterial', 'ng-mfb'])
-    .config(function ($httpProvider) {
-      $httpProvider.defaults.headers.common = {};
-      $httpProvider.defaults.headers.post = {};
-      $httpProvider.defaults.headers.put = {};
-      $httpProvider.defaults.headers.patch = {};
-      $httpProvider.defaults.headers.delete = {};
-    });
+
+  export interface contactTemplate {
+    name: string,
+    number: number,
+    email: string,
+    company: string,
+    address: string
+  }
+
+  angular.module('addressBookApp', ['ui.router', 'ngMaterial', 'ng-mfb']);
 }

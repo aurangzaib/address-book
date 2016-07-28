@@ -5,12 +5,13 @@ module addressBook {
   export class MainCtrl {
     static $inject = ["$rootScope", "logicService", "contacts"];
 
-    constructor($rootScope:ng.IRootScopeService,
-                logicService:addressBook.LogicService,
-                contacts) {
-      var vm:any = this;
+    constructor($rootScope: ng.IRootScopeService,
+      logicService: addressBook.LogicService,
+      contacts: addressBook.contactTemplate) {
 
-      vm.contacts = contacts.data;
+      let vm:any = this;
+      vm.contacts = contacts;
+
       vm.viewContact = (contact) => logicService.viewContactModal(contact);
       vm.editContact = (contact) => logicService.editContactModal(contact);
       vm.deleteContact = (contact) => logicService.deleteContact(contact.id);

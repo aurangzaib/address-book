@@ -50,6 +50,10 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         }
       },
+      ts: {
+        files: ['<%= yeoman.app %>/scripts/{,*/}*.ts'],
+        tasks : ['make-js']
+      },
       jsTest: {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'newer:jscs:test', 'karma']
@@ -441,6 +445,8 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'clean-js',
+      'make-js',
       'wiredep',
       'concurrent:server',
       'postcss:server',

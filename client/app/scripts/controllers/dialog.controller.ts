@@ -4,12 +4,13 @@ module addressBook {
   'use strict';
   export class DialogCtrl {
     static $inject = ["$mdDialog", "logicService", "title", "contact"];
+    constructor(
+      $mdDialog: angular.material.IDialogService,
+      logicService: addressBook.LogicService,
+      title: string,
+      contact: addressBook.contactTemplate) {
 
-    constructor($mdDialog,
-                logicService:addressBook.LogicService,
-                title,
-                contact) {
-      var vm:any = this;
+      let vm: any = this;
 
       vm.title = title;
       vm.contact = contact;

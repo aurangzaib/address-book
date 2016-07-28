@@ -4,17 +4,18 @@ module addressBook {
   'use strict';
   export class LogicService {
 
-    viewContactModal:(contact) => void;
-    editContactModal:(contact) => void;
-    deleteContact:(contactId) => void;
-    addContact:(contact) => void;
-    updateContact:(id, contact) => void;
+    viewContactModal: (contact) => void;
+    editContactModal: (contact) => void;
+    deleteContact: (contactId: string) => void;
+    addContact: (contact) => void;
+    updateContact: (id: string, contact) => void;
 
     static $inject = ["$rootScope", "$mdDialog", "dataService"];
-
-    constructor($rootScope:ng.IRootScopeService,
-                $mdDialog,
-                dataService:addressBook.DataService) {
+    constructor(
+      $rootScope: angular.IRootScopeService,
+      $mdDialog,
+      dataService: addressBook.DataService
+    ) {
 
       this.viewContactModal = (contact) => {
         $mdDialog.show({
@@ -22,8 +23,8 @@ module addressBook {
           controllerAs: 'vm',
           templateUrl: 'views/view.html',
           resolve: {
-            title: [()=> "View Details"],
-            contact: [()=> contact]
+            title: [() => "View Details"],
+            contact: [() => contact]
           },
           parent: angular.element(document.body),
           clickOutsideToClose: true
@@ -36,8 +37,8 @@ module addressBook {
           controllerAs: 'vm',
           templateUrl: 'views/add.html',
           resolve: {
-            title: [()=> !!contact ? "Edit Details" : "Add Contact"],
-            contact: [()=> contact]
+            title: [() => !!contact ? "Edit Details" : "Add Contact"],
+            contact: [() => contact]
           },
           parent: angular.element(document.body),
           clickOutsideToClose: true
@@ -48,8 +49,8 @@ module addressBook {
         dataService.deleteContact(contactId)
           .success(data => {
             dataService.getContacts()
-              .success(data=> {
-                $rootScope.$broadcast("user-data-changed", data);
+              .then(data => {
+                $rootScope.$broadcast("user-data-changed", data.data);
               });
           });
       };
@@ -58,8 +59,8 @@ module addressBook {
         dataService.createContact(contact)
           .success(data => {
             dataService.getContacts()
-              .success(data=> {
-                $rootScope.$broadcast("user-data-changed", data);
+              .then(data => {
+                $rootScope.$broadcast("user-data-changed", data.data);
                 $mdDialog.hide();
               });
           });
@@ -69,8 +70,8 @@ module addressBook {
         dataService.updateContact(id, contact)
           .success(data => {
             dataService.getContacts()
-              .success(data=> {
-                $rootScope.$broadcast("user-data-changed", data);
+              .then(data => {
+                $rootScope.$broadcast("user-data-changed", data.data);
                 $mdDialog.hide();
               });
           });
@@ -79,4 +80,5 @@ module addressBook {
   }
 }
 
-angular.module('addressBookApp').service("logicService", addressBook.LogicService);
+angular.module('addressBookApp')
+  .service("logicService", addressBook.LogicService);
